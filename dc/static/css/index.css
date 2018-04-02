@@ -1,0 +1,49 @@
+body{
+    margin: 0;
+}
+.container-fluid.head{
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+}
+a:hover{
+    /*text-decoration: none;*/
+    text-decoration-line: none;
+    color: #5bc0de;
+}
+a.title{
+    /*font-size: 18px;*/
+    color: white;
+}
+
+.head .col-md-10{
+    background-color: #2b669a;
+}
+.head .col-md-2{
+    background-color: #204d74;
+
+}
+a.zuo{
+    margin-left: 10px;
+    color: white;
+}
+a.you{
+    margin-right: 10px;
+    color: white;
+}
+.h{
+    height: 30px;
+    line-height: 30px;
+    text-align: left;
+    background-color: lightgrey;
+}
+.question{
+    background-color: #eeeeee;
+}
+h4{
+    color: #e6e6e6;
+}
+.hide{
+    display: none;
+}

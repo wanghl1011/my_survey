@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>Title</title>
+    <link rel="stylesheet" href="/static/bootstrap-3.3.7/css/bootstrap.css">
+    <link rel="stylesheet" href="/static/css/index.css">
+    <script src="/static/js/jquery-3.2.1.min.js"></script>
+    <script src="/static/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="container-fluid head">
+    <div class="row">
+        <div class="col-md-2">
+            <a class="title" href="">CRM系统</a>
+        </div>
+        <div class="col-md-10">
+            <a class="pull-left zuo" href="">资产首页</a>
+            <a class="pull-left zuo" href="">平台首页</a>
+
+            <a class="pull-right you" href="">消息</a>
+            <a class="pull-right you" href="">通知</a>
+            <a class="pull-right you" href="">任务</a>
+        </div>
+    </div>
+</div>
+<div class="container-fluid you">
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-10 h">
+            <div>
+                <a href="">首页</a>&nbsp;&nbsp;/&nbsp;&nbsp;
+                <a href="">数据列表</a>
+            </div>
+            <div class="naire_list">
+                <form action="/dc/add_edit/naire/{{ questionnaire_id }}" method="post">
+                {% csrf_token %}
+                    <div class="form-group">
+                        <label for="">问卷名称</label>
+{#                        <input name="title" class="form-control" id="exampleInputEmail1" placeholder="问卷名称">#}
+                        {{ questionnaire_form.title }}
+                    </div>
+                    <div class="form-group">
+                        <label for="">问卷班级</label>
+{#                        <select name="grade" class="form-control" id="">#}
+                            {{ questionnaire_form.grade }}
+{#                            {% for item in grade_list %}#}
+{#                                {% if questionnaire_form.grade == item.nid %}#}
+{#                                    <option selected value="{{ item.nid }}">{{ item.name }}</option>#}
+{#                                {% else %}#}
+{#                                    <option value="{{ item.nid }}">{{ item.name }}</option>#}
+{#                                {% endif %}#}
+{##}
+{#                            {% endfor %}#}
+{#                        </select>#}
+                    </div>
+                    <div class="form-group">
+                        <label for="">创建者</label>
+                            {{ questionnaire_form.create_user }}
+{#                        <select name="create_user" class="form-control" id="" >#}
+{#                            {% for i in user_list %}#}
+{#                                {% if questionnaire_form.create_user == i.nid %}#}
+{#                                <option selected value="{{ i.nid }}">{{ i.username }}</option>#}
+{#                                {% else %}#}
+{#                                <option value="{{ i.nid }}">{{ i.username }}</option>#}
+{#                                {% endif %}#}
+{#                            {% endfor %}#}
+{#                        </select>#}
+                    </div>
+
+                    <button type="submit" class="btn btn-default">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+>

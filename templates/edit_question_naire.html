@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>Title</title>
+    <link rel="stylesheet" href="/static/bootstrap-3.3.7/css/bootstrap.css">
+    <link rel="stylesheet" href="/static/css/index.css">
+
+</head>
+<body>
+<div class="container-fluid head">
+    <div class="row">
+        <div class="col-md-2">
+            <a class="title" href="">CRM系统</a>
+        </div>
+        <div class="col-md-10">
+            <a class="pull-left zuo" href="">资产首页</a>
+            <a class="pull-left zuo" href="">平台首页</a>
+
+            <a class="pull-right you" href="">消息</a>
+            <a class="pull-right you" href="">通知</a>
+            <a class="pull-right you" href="">任务</a>
+        </div>
+    </div>
+</div>
+<div class="container-fluid you">
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-10 h">
+            <div>
+                <a href="">首页</a>&nbsp;&nbsp;/&nbsp;&nbsp;
+                <a href="">问卷调查</a>&nbsp;&nbsp;/&nbsp;&nbsp;
+                <a href="">编辑问卷题目</a>
+            </div>
+            <div style="margin-top: 10px;height: 50px;">
+                <a href="" role="button" class="btn btn-primary pull-right">保存</a>
+                <a style="margin-right: 10px" role="button" class="btn btn-success pull-right add">添加</a>
+            </div>
+            <div class="question_list" style="margin-top: 10px">
+                {% for question_option_dict in question_option_info %}
+                    <div class="question">
+                        <div>
+                            <span class="text-left question_num" style="opacity: 10">问题{{ forloop.counter }}</span>
+                            <a class="pull-right del_question"><span
+                                    class="glyphicon glyphicon-remove text-right"></span></a>
+                        </div>
+                        <form class="form-horizontal">
+                            <div class="form-group">
+                                <label for="id_title" class="col-sm-2 control-label">问题</label>
+                                <div class="col-sm-6">
+                                    {{ question_option_dict.question_form.title }}
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="id_type" class="col-sm-2 control-label">类型</label>
+                                <div class="col-sm-3">
+                                    {{ question_option_dict.question_form.type }}
+                                </div>
+                                {% if question_option_dict.question.type == 3 %}
+                                    <a role="button" class="option"><span
+                                            class="glyphicon glyphicon-plus"></span><span>添加选项</span></a>
+                                {% else %}
+                                    <a role="button" class="hide option"><span
+                                            class="glyphicon glyphicon-plus"></span><span>添加选项</span></a>
+                                {% endif %}
+                            </div>
+                        </form>
+                        {% if question_option_dict.question.type == 3 %}
+                            <div style="margin-left: 260px">
+                                <ul>
+                                    {% for option_form in question_option_dict.option_form_list %}
+                                    <li>
+                                        <form class="form-inline">
+                                            <div class="form-group">
+                                                <label for="id_name">内容</label>
+                                                {{ option_form.name }}
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="id_score">分值</label>
+                                                {{ option_form.score }}
+                                            </div>
+                                            <a class="del_option"><span class="glyphicon glyphicon-remove"></span></a>
+                                        </form>
+                                    </li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                        {% else %}
+                            <div style="margin-left: 260px">
+                                <ul></ul>
+                            </div>
+                        {% endif %}
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+</div>
+<script src="/static/js/jquery-3.2.1.min.js"></script>
+<script src="/static/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+<script src="/static/js/edit.js"></script>
+</body>
+</html>
+{#                                    <textarea name="question" class="form-control"#}
+{#                                              id="id_question">{{ question.title }}</textarea>#}
+{#                                    <select name="type" class="form-control" id="id_type">#}
+{#                                        <option selected value="1">评分</option>#}
+{#                                        <option selected value="2">描述</option>#}
+{#                                        <option selected value="3">单选</option>#}
+{#                                    </select>#}
+{#<div>#}
+{#<ul>#}
+{#    <li>#}
+{#<form action="" class="form-horizontal">#}
+{#        <form class="form-inline">#}
+{#            <div class="form-group">#}
+{#                <label for="Name2">内容</label>#}
+{#                <input type="text" class="form-control" id="Name2">#}
+{#            </div>#}
+{#            <div class="form-group">#}
+{#                <label for="Email2">分值</label>#}
+{#                <input type="text" class="form-control" id="Email2">#}
+{#            </div>#}
+{#            <a class="del_option"><span class="glyphicon glyphicon-remove"></span></a>#}
+{#        </form>#}
+{#    </form>#}
+{#    </li>#}
+{#</ul>#}
+{#</div>#}
